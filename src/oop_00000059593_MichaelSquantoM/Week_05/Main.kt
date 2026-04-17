@@ -32,4 +32,16 @@ fun main() {
     println("\n=== TUGAS 2: PAYMENT SYSTEM ===")
     val myWallet = EWallet("Dana John", 50000.0)
     val myCard = CreditCard("Visa John", 100000.0)
+
+    val payments: List<PaymentMethod> = listOf(myWallet, myCard)
+
+    for (pay in payments) {
+        pay.processPayment(75000.0)
+
+        if (pay is EWallet && pay.balance < 75000.0) {
+            pay.topUp(50000.0)
+            pay.processPayment(75000.0) // Coba lagi setelah top up
+        }
+        println("---")
+    }
 }
