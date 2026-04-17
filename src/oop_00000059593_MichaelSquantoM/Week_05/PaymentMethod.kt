@@ -19,3 +19,16 @@ class EWallet(accountName: String, var balance: Double) : PaymentMethod(accountN
         println("[$accountName] Berhasil Top Up: $amount. Saldo baru: $balance")
     }
 }
+
+class CreditCard(accountName: String, val limit: Double) : PaymentMethod(accountName) {
+    var usedAmount: Double = 0.0
+
+    override fun processPayment(amount: Double) {
+        if (usedAmount + amount <= limit) {
+            usedAmount += amount
+            println("[$accountName] Pembayaran Kartu Kredit sebesar $amount Berhasil.")
+        } else {
+            println("[$accountName] Transaksi ditolak. Melebihi limit.")
+        }
+    }
+}
