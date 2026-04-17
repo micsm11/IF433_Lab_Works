@@ -5,6 +5,9 @@ class Student (
     val nim: String,
     var major: String
 ){
+    constructor(name:String,  nim:String) : this(name, nim, "Non-Matriculated")
+    println("Log: Mmenggunakan constructor jalur semua umum (Tanpa jurusan)")
+
     class Student (val name: String, val nim: String, var major: String) {
         init {
             // Validasi Sederhana: Cek panjang NIM
