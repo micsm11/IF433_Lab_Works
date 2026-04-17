@@ -20,4 +20,17 @@ fun main() {
 
         println("Senjata: ${sword.name}, Damage: ${sword.damage}, Tier: ${sword.tier}")
     }
-}
+        val sword = Weapon("Excalibur")
+        sword.damage = 9999
+        println("Senjata: ${sword.name}, Damage: ${sword.damage}, Tier: ${sword.tier}")
+
+        println("\n--- Implementasi Tugas 2: Player ---")
+        val player = Player("JohnThor")
+
+
+        player.addXp(50)
+        println("Status saat ini: Level ${player.level}")
+
+        player.addXp(60)
+        println("Status saat ini: Level ${player.level}")
+    }
