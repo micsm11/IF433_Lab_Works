@@ -17,4 +17,11 @@ fun main() {
         println("Harga Akhir : Rp $finalPrice")
     }
 
+// Di dalam main():
+    val discount = calculateDiscount(price)
+    printReceipt(
+        title = gameTitle,
+        originalPrice = price,
+        finalPrice = price - discount
+    )
 }
