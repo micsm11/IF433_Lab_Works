@@ -1,3 +1,4 @@
+import oop_00000059593_MichaelSquantoM.Week_02.Hero
 import oop_00000059593_MichaelSquantoM.Week_02.Loan
 import java.util.Scanner
 import javax.xml.transform.Source
@@ -40,8 +41,7 @@ fun main() {
             println("Pilihan ngawur, pendaftaran batal!")
         }
     }
-
-    fun main() {
+    {
         val scanner = Scanner(System.`in`)
 
         println("--- Sistem Perpustakaan ---")
@@ -64,5 +64,54 @@ fun main() {
         println("Peminjam: ${loan.borrower}")
         println("Durasi: ${loan.loanDuration} hari")
         println("Total Denda: Rp ${loan.calculateFine()}")
+    }
+
+    fun main() {
+        val scanner = Scanner(System.`in`)
+
+        println("--- Setup Hero ---")
+        print("Masukkan Nama Hero: ")
+        val heroName = scanner.nextLine()
+        print("Masukkan Base Damage: ")
+        val damage = scanner.nextInt()
+
+        val myHero = Hero(heroName, damage)
+        var enemyHp = 100
+
+        println("\n--- BATTLE START: vs Slime ---")
+
+        while (myHero.isAlive() && enemyHp > 0) {
+            println("\nHP Kamu: ${myHero.hp} | HP Musuh: $enemyHp")
+            println("Aksi: 1. Serang, 2. Kabur")
+            print("Pilih: ")
+
+            when (scanner.nextInt()) {
+                1 -> {
+                    myHero.attack("Slime")
+                    enemyHp -= myHero.baseDamage
+                    println("HP Musuh tersisa: $enemyHp")
+
+                    if (enemyHp > 0) {
+                        val enemyAtk = (10..20).random()
+                        println("Slime menyerang balik sebesar $enemyAtk damage!")
+                        myHero.takeDamage(enemyAtk)
+                    }
+                }
+                2 -> {
+                    println("Kamu melarikan diri dari pertempuran!")
+                    break
+                }
+                else -> println("Pilihan tidak valid!")
+            }
+        }
+
+        println("\n--- HASIL AKHIR ---")
+        if (enemyHp <= 0) {
+            println("Selamat! ${myHero.name} Menang!")
+        } else if (!myHero.isAlive()) {
+            println("GAME OVER... ${myHero.name} telah gugur.")
+        } else {
+            println("Pertempuran berakhir karena kamu kabur.")
+        }
     }
 }
