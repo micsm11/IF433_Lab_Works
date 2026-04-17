@@ -1,3 +1,4 @@
+import oop_00000059593_MichaelSquantoM.Week_02.Loan
 import java.util.Scanner
 import javax.xml.transform.Source
 
@@ -38,5 +39,30 @@ fun main() {
         } else {
             println("Pilihan ngawur, pendaftaran batal!")
         }
+    }
+
+    fun main() {
+        val scanner = Scanner(System.`in`)
+
+        println("--- Sistem Perpustakaan ---")
+        print("Judul Buku: ")
+        val title = scanner.nextLine()
+        print("Nama Peminjam: ")
+        val name = scanner.nextLine()
+        print("Lama Pinjam (hari): ")
+        var duration = scanner.nextInt()
+
+        // Validasi: Jika minus, otomatis ubah jadi 1
+        if (duration < 0) {
+            duration = 1
+        }
+
+        val loan = Loan(title, name, duration)
+
+        println("\n--- Detail Peminjaman ---")
+        println("Judul: ${loan.bookTitle}")
+        println("Peminjam: ${loan.borrower}")
+        println("Durasi: ${loan.loanDuration} hari")
+        println("Total Denda: Rp ${loan.calculateFine()}")
     }
 }
