@@ -25,3 +25,11 @@ fun main() {
         finalPrice = price - discount
     )
 }
+fun printReceipt(title: String, originalPrice: Int, finalPrice: Int, note: String?) {
+    println("=== STRUK PEMBELIAN STEAMKW ===")
+    println("Judul Game  : $title")
+    println("Harga Asli  : Rp $originalPrice")
+    println("Harga Akhir : Rp $finalPrice")
+
+    println("Catatan     : ${note ?: "Tidak ada catatan"}")
+}
