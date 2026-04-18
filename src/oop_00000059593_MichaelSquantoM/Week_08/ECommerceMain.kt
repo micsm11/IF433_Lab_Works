@@ -27,5 +27,5 @@ fun main() {
         } catch (e: IllegalArgumentException) {
             println("LOG ERROR: Data korup terdeteksi! ${e.message}")
         }
-    }
+
 }
