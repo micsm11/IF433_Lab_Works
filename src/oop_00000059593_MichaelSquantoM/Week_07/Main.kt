@@ -28,4 +28,7 @@ fun main() {
 
     val (userName, userAge) = data1 // Destructuring Declaration
     println("Destructured: $userName berumur $userAge")
+
+    println("\n=== TEST SEALED CLASS ===")
+    val response: ApiResponse = ApiResponse.Success("Data berhasil ditarik!")
 }
