@@ -26,5 +26,5 @@ class SmartHomeHub {
                 device.playMusic("Sirine Peringatan")
             }
         }
-
+    }
 }
