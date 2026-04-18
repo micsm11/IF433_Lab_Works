@@ -1,4 +1,4 @@
-package oop_00000059593_MichaelSquantoM.Week_4
+package oop_00000059593_MichaelSquantoM.Week_04
 
 open class Vehicle(val brand: String) {
     var speed: Int = 0

@@ -1,4 +1,4 @@
-package oop_00000059593_MichaelSquantoM.week_03
+package oop_00000059593_MichaelSquantoM.Week_03
 
 class Weapon(val name: String) {
     var damage: Int = 0

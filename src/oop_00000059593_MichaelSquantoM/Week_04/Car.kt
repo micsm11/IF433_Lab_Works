@@ -1,4 +1,4 @@
-package oop_00000059593_MichaelSquantoM.Week_4
+package oop_00000059593_MichaelSquantoM.Week_04
 
 open class Car(brand: String, val numberOfDoors: Int) : Vehicle(brand) {
 
