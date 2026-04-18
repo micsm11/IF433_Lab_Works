@@ -1,7 +1,7 @@
 package oop_00000059593_MichaelSquantoM.Week_06
 
 fun processCheckout(method: PaymentMethod, amount: Double) {
-    println("-> Memulai checkout...")
+    println("-- Memulai checkout...")
     method.pay(amount)
 }
 
@@ -18,4 +18,21 @@ fun main() {
     println("\n=== TESTING CHECKOUT ===")
     processCheckout(method = pay1, amount = 50000.0)
     processCheckout(method = pay2, amount = 150000.0)
+
+
+    val lamp = SmartLamp("1", "Ruang Tamu")
+    val speaker = SmartSpeaker("2", "Google Nest Dapur")
+    val cctv = SmartCCTV("3", "Ezviz Garasi")
+
+    val hub = SmartHomeHub()
+
+    hub.addDevice(lamp)
+    hub.addDevice(speaker)
+    hub.addDevice(cctv)
+
+    println("=== SECURITY MODE AKTIF ===")
+    hub.activateSecurityMode()
+
+    println("\n=== MATIKAN SEMUA PERANGKAT ===")
+    hub.turnOffAllSwitches()
 }
