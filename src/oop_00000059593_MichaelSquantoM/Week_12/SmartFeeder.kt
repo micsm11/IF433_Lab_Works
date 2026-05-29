@@ -15,3 +15,8 @@ fun main() {
 
     println("=== JADWAL MAKAN PAGI ===")
     try {
+        currentKibbleStock = dispenseKibble(80, currentKibbleStock, false)
+    } catch (e: DispenserJamException) {
+        println("Error: ${e.message}")
+    }
+}
