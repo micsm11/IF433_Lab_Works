@@ -5,3 +5,7 @@ data class Transaction(override val name: String, val amount: Double) : NamedEnt
 
 fun main() {
     val coinRepo = WalletRepository<Coin>()
+
+    coinRepo.add(Coin("BTC", 0.5))
+    coinRepo.add(Coin("ETH", 5.0))
+    coinRepo.add(Coin("USDT", 1000.0))
