@@ -10,3 +10,6 @@ fun main() {
         for (i in 1..100) {
             out.println("Safe Log entry #$i: System status OK.")
         }
+    }
+    println("100 baris log berhasil di-generate dengan sangat aman.")
+
