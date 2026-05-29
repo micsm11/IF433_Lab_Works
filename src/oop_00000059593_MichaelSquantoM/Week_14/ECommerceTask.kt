@@ -3,7 +3,7 @@ package oop_00000059593_MichaelSquantoM.Week_14
 import java.io.File
 
 interface OrderRepository {
-    fun saveOrder(itemName: String, finalPrice: Double, customerType: String)
+    fun saveOrder(itemName: String, finalPrice: Double)
 }
 
 class CsvOrderRepository : OrderRepository {
@@ -12,15 +12,11 @@ class CsvOrderRepository : OrderRepository {
 
     override fun saveOrder(
         itemName: String,
-        finalPrice: Double,
-        customerType: String
+        finalPrice: Double
     ) {
-        file.bufferedWriter().use { writer ->
-            writer.append("$itemName,$finalPrice,$customerType\n")
-        }
+        file.appendText("$itemName,$finalPrice\n")
     }
 }
-
 
 interface NotificationService {
     fun sendNotification(message: String)
@@ -33,6 +29,23 @@ class EmailNotifier : NotificationService {
     }
 }
 
+interface PricingStrategy {
+    fun calculate(price: Double): Double
+}
+
+class RegularPricing : PricingStrategy {
+
+    override fun calculate(price: Double): Double {
+        return price
+    }
+}
+
+class VipPricing : PricingStrategy {
+
+    override fun calculate(price: Double): Double {
+        return price * 0.90
+    }
+}
 
 class SafeOrderProcessor(
     private val repo: OrderRepository,
@@ -42,21 +55,37 @@ class SafeOrderProcessor(
     fun processOrder(
         itemName: String,
         basePrice: Double,
-        customerType: String
+        pricingStrategy: PricingStrategy
     ) {
 
-        val finalPrice = when (customerType) {
-            "REGULAR" -> basePrice
-            "VIP" -> basePrice * 0.90
-            else -> basePrice
-        }
+        val finalPrice = pricingStrategy.calculate(basePrice)
 
         println("Memproses pesanan $itemName seharga $finalPrice")
 
-        repo.saveOrder(itemName, finalPrice, customerType)
+        repo.saveOrder(itemName, finalPrice)
 
         notifier.sendNotification(
             "Pesanan $itemName Anda telah dikonfirmasi!"
         )
     }
+}
+
+fun main() {
+
+    val repo = CsvOrderRepository()
+    val notifier = EmailNotifier()
+
+    val processor = SafeOrderProcessor(repo, notifier)
+
+    processor.processOrder(
+        "Laptop Gaming",
+        15000000.0,
+        VipPricing()
+    )
+
+    processor.processOrder(
+        "Mouse Wireless",
+        250000.0,
+        RegularPricing()
+    )
 }
