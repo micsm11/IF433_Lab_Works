@@ -25,5 +25,7 @@ fun main() {
     println("\n=== COMBINE APPLY AND ALSO ===")
     val newUser = User("Budi", 20).apply {
         age = 21
+    }.also {
+        println("User baru berhasil dibuat: $it")
     }
 }
