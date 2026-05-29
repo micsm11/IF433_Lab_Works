@@ -58,3 +58,8 @@ fun main() {
         .appendText("CORRUPT_ID,DOGEUSDT,Hold,XX,YY\n")
 
     val loadedData = loadTrades("crypto_trades.csv")
+    println("=== VALID TRADES ===")
+
+    loadedData.forEach {
+        println(it)
+    }
