@@ -1,5 +1,8 @@
 package oop_00000059593_MichaelSquantoM.Week_10
 
+interface WalletModels {
+    val name: String
+
 data class Coin(override val name: String, val balance: Double) : NamedEntity
 data class Transaction(override val name: String, val amount: Double) : NamedEntity
 
@@ -22,4 +25,4 @@ fun main() {
     txRepo.add(Transaction("TXN-002", 50.0))
 
     println("\nTransaksi Terakhir: ${txRepo.getAll().map { it.name }}")
-}
+}}
