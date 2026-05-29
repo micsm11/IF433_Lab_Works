@@ -6,6 +6,6 @@ class MathBox<T : Number>(val value1: T, val value2: T) {
     }
 }
 
-fun <T> getMax(a: T, b: T) where T : Comparable<T> {
+fun <T : Comparable<T>> getMax(a: T, b: T): T {
     return if (a > b) a else b
 }
