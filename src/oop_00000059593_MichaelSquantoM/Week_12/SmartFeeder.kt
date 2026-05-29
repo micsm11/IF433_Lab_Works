@@ -18,5 +18,5 @@ fun main() {
         currentKibbleStock = dispenseKibble(80, currentKibbleStock, false)
     } catch (e: DispenserJamException) {
         println("Error: ${e.message}")
-    }
-}
+    } catch (e: FoodEmptyException) {
+        println("Error: ${e.message}")
