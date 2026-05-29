@@ -13,3 +13,19 @@ data class TradeRecord(
 fun TradeRecord.toCsv(): String {
     return "$id,$symbol,$type,$margin,$pnl"
 }
+fun fromCsvTrade(line: String): TradeRecord? {
+    return try {
+        val parts = line.split(",")
+
+        TradeRecord(
+            parts[0].toInt(),
+            parts[1],
+            parts[2],
+            parts[3].toDouble(),
+            parts[4].toDouble()
+        )
+    } catch (e: Exception) {
+        println("(Log) Data korup diabaikan: $line")
+        null
+    }
+}
