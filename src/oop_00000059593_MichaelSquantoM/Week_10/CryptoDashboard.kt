@@ -16,3 +16,10 @@ fun main() {
     response.data.forEach { coin ->
         println("Coin: ${coin.name}, Balance: ${coin.balance}")
     }
+
+    val txRepo = WalletRepository<Transaction>()
+    txRepo.add(Transaction("TXN-001", 100.0))
+    txRepo.add(Transaction("TXN-002", 50.0))
+
+    println("\nTransaksi Terakhir: ${txRepo.getAll().map { it.name }}")
+}
