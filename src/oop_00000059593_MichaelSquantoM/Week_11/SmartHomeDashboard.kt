@@ -25,4 +25,8 @@ fun main() {
     homeDevices.find { it.category == "Camera" }?.let {
         println(it.diagnose())
     }
+
+    with(homeDevices) {
+        println("Total perangkat terdaftar: ${this.size}")
+    }
 }
