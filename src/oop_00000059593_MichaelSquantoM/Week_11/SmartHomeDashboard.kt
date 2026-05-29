@@ -36,4 +36,3 @@ fun main() {
     println("\n--- Rincian Perangkat ---")
     homeDevices.forEach { println(it.diagnose()) }
 }
-}
