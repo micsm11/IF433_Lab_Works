@@ -34,3 +34,7 @@ fun saveTrades(trades: List<TradeRecord>, path: String) {
         trades.forEach {
             writer.println(it.toCsv())
         }
+    }
+}
+fun loadTrades(path: String): List<TradeRecord> {
+    return try {
