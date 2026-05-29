@@ -13,4 +13,5 @@ fun dispenseKibble(requestedGram: Int, availableGram: Int, isJammed: Boolean): I
 fun main() {
     var currentKibbleStock = 50
 
-}
+    println("=== JADWAL MAKAN PAGI ===")
+    try {
