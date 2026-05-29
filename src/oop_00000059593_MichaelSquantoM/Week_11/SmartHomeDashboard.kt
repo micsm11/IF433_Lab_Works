@@ -21,4 +21,8 @@ fun main() {
     }
     homeDevices.add(acUnit)
     homeDevices.add(SmartDevice("Picolo's Auto Feeder", "Pet Care", true, 10))
+
+    homeDevices.find { it.category == "Camera" }?.let {
+        println(it.diagnose())
+    }
 }
